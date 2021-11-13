@@ -19,6 +19,7 @@ function Login() {
 
       let login = await fetch('https://gameback-end.herokuapp.com/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
