@@ -27,7 +27,7 @@ function App() {
 
         dispatch({ type: 'USER_LOGIN'})
       } else {
-        dispatch({ type: 'USER_LOGIN'})
+        dispatch({ type: 'USER_LOGIN_FALSE'})
       }
     }
 
