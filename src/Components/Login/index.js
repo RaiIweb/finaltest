@@ -40,46 +40,9 @@ function Login() {
     }
   }
   
-  async function handleClick(e) {
-    e.preventDefault()
-    console.log('form submit')
+  
 
-    
-
-    try {
-
-      let login = await fetch('https://gameback-end.herokuapp.com', {
-        method: 'GET',
-        credentials: 'include',
-      })
-
-      let result = await login.json();
-
-      console.log(result)
-    } catch(e) {
-      console.log(e);
-    }
-  }
-
-  async function handleClicktwo(e) {
-    e.preventDefault()
-    console.log('form submit')
-
-
-    try {
-
-      let login = await fetch('https://gameback-end.herokuapp.com', {
-        method: 'GET',
-        credentials: 'include',
-      })
-
-      let result = await login.json();
-
-      console.log(result)
-    } catch(e) {
-      console.log(e);
-    }
-  }
+  
 
   return (
     <div className="loginwrapper">
@@ -126,8 +89,6 @@ function Login() {
           </span>
         </div>
       </form>
-      <button onClick={handleClick}>test</button>
-      <button onClick={handleClicktwo}>two</button>
     </div>
   );
 }
