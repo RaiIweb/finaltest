@@ -1,17 +1,6 @@
 import { USER_LOGIN, USER_LOGOUT } from "../actions";
 
-let loggedin = async function() {
-    let login = await fetch('https://gameback-end.herokuapp.com', {
-        method: 'GET',
-        credentials: 'include',
-      })
 
-      let result = await login.json();
-
-      return result.login
-}
-
-loggedin().then((val) => console.log(val)  )
 
 const INITIAL_STATE = { userLoggedIn: false }
 
