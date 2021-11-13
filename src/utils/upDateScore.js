@@ -1,5 +1,5 @@
 
-export default async function updateScore(status) {
+export default async function updateScore(status,dispatch) {
 
     let result  = await fetch("https://gameback-end.herokuapp.com/update", {
                         method: "POST",
@@ -9,6 +9,9 @@ export default async function updateScore(status) {
                         },
                         body: JSON.stringify({status})
                     })
-    let response = result.json()
-    return response
+    let response = await result.json()
+
+    if(response.response == 'invalid cookie') dispatch({ type: 'USER_LOGOUT'})
+
+
 }
