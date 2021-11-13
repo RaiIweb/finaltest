@@ -1,5 +1,6 @@
 import React, { useEffect , useState } from "react";
 import { useDispatch } from "react-redux";
+import updateScore from '../../utils/upDateScore'
 
 function Game() {
 
@@ -236,6 +237,9 @@ function Game() {
           if (!rounds[this.round + 1]) {
             this.over = true;
             console.log('player won');
+
+            updateScore('won')
+
             console.log(this.player.score);
             setTimeout(function () {
               Game.endGameMenu("Winner!");
@@ -254,6 +258,8 @@ function Game() {
         else if (this.paddle.score === rounds[this.round]) {
           this.over = true;
           console.log('ai won');
+
+          updateScore('loose')
           console.log(this.player.score);
           setTimeout(function () {
             Game.endGameMenu("Game Over!");
