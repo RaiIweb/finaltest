@@ -259,7 +259,7 @@ function Game() {
           this.over = true;
           console.log('ai won');
 
-          updateScore('loose')
+          updateScore('loose' ,dispatch)
           console.log(this.player.score);
           setTimeout(function () {
             Game.endGameMenu("Game Over!");
