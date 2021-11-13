@@ -61,6 +61,26 @@ function Login() {
     }
   }
 
+  async function handleClicktwo(e) {
+    e.preventDefault()
+    console.log('form submit')
+
+
+    try {
+
+      let login = await fetch('https://gameback-end.herokuapp.com', {
+        method: 'GET',
+        credentials: 'include',
+      })
+
+      let result = await login.json();
+
+      console.log(result)
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
   return (
     <div className="loginwrapper">
       <h2>Login Form</h2>
@@ -107,6 +127,7 @@ function Login() {
         </div>
       </form>
       <button onClick={handleClick}>test</button>
+      <button onClick={handleClicktwo}>two</button>
     </div>
   );
 }
