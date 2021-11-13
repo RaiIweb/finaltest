@@ -26,6 +26,8 @@ function App() {
       if(result.login) {
 
         dispatch({ type: 'USER_LOGIN'})
+      } else {
+        dispatch({ type: 'USER_LOGIN'})
       }
     }
 

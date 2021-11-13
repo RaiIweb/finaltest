@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "../actions";
+import { USER_LOGIN, USER_LOGOUT, USER_LOGIN_FALSE } from "../actions";
 
 
 
@@ -10,6 +10,13 @@ const authReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 userLoggedIn: true,
+
+            }
+        }
+        case USER_LOGIN_FALSE: {
+            return {
+                ...state,
+                userLoggedIn: false,
 
             }
         }
