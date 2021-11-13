@@ -8,10 +8,9 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 
 function App() {
-  console.log("hh");
-  const test = useSelector((state) => state.authState.userLoggedIn);
+  const test = useSelector((state) => state.authState.userLoggedIn)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     let loggedin = async function () {
@@ -20,8 +19,10 @@ function App() {
         credentials: "include",
       })
 
+      console.log('in app')
       let result = await login.json()
 
+      console.log(result)
       if(result.login) {
 
         dispatch({ type: 'USER_LOGIN'})
@@ -29,7 +30,7 @@ function App() {
     }
 
     loggedin()
-  }, []);
+  }, [])
 
   return (
     <div>
