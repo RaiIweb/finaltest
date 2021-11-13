@@ -11,6 +11,7 @@ export default async function updateScore(status,dispatch) {
                     })
     let response = await result.json()
 
+    console.log(response)
     if(response.response == 'invalid cookie'){
 
         dispatch({ type: 'USER_LOGOUT'})
