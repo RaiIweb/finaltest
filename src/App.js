@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       test
-     <BrowserRouter>
+     <BrowserRouter  basename={process.env.PUBLIC_URL}>
         <Routes>
 
           <Route path="/game" element={<Game />}>
