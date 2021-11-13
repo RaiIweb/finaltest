@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "../src/Components/Dashboard";
 import Login from "./Components/Login";
 import { useSelector } from "react-redux";
-import { handleUserLogin } from "../../actions/authAction";
 
 import "./App.css";
 import { useDispatch } from "react-redux";
@@ -23,7 +22,10 @@ function App() {
 
       let result = await login.json()
 
-      dispatch(handleUserLogin(result.login))
+      if(result.login) {
+
+        dispatch({ type: 'USER_LOGIN'})
+      }
     }
 
     loggedin()
