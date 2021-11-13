@@ -28,7 +28,7 @@ function Game() {
           speed: incrementedSpeed || 9,
         };
       },
-    };
+    }
 
     // The paddle object (The two lines that move up and down)
     var Paddle = {
@@ -43,7 +43,7 @@ function Game() {
           speed: 8,
         };
       },
-    };
+    }
 
     var Game = {
 
@@ -402,7 +402,25 @@ function Game() {
 
   }, [])
 
-  return <canvas></canvas>;
+  async function handleLogout() {
+
+    let logout = await fetch("https://gameback-end.herokuapp.com/logout", {
+        method: "POST",
+        credentials: "include",
+      })
+
+    let result = await logout.json()
+
+    console.log(result)
+
+  }
+  return (
+    <div>
+
+      <canvas></canvas>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
 }
 
 export default Game;
