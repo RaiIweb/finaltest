@@ -2,7 +2,7 @@ import { USER_LOGIN, USER_LOGOUT } from "../actions";
 
 
 
-const INITIAL_STATE = { userLoggedIn: false }
+const INITIAL_STATE = { userLoggedIn: null }
 
 const authReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {

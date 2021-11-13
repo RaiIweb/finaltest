@@ -34,12 +34,16 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Routes>
-          <Route path="/game" element={<Game />}></Route>
-          <Route exact path="/" element={test ? <Game /> : <Login />}></Route>
-        </Routes>
-      </BrowserRouter>
+      {
+        test !== null &&
+
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <Routes>
+            <Route path="/game" element={<Game />}></Route>
+            <Route exact path="/" element={test ? <Game /> : <Login />}></Route>
+          </Routes>
+        </BrowserRouter>
+      }
     </div>
   );
 }
