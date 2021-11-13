@@ -1,8 +1,8 @@
-import {  USER_LOGIN, USER_LOGOUT  } from "./types"
+import {  USER_LOGIN_TRUE, USER_LOGOUT  } from "./types"
 
 export const userLogin = () => {
     return {
-        type: USER_LOGIN,
+        type: USER_LOGIN_TRUE,
     }
 }
 
