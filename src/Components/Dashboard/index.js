@@ -238,8 +238,9 @@ function Game() {
             this.over = true;
             console.log('player won');
 
-            updateScore('win').then((val) => console.log(val)).catch(e => console.log(e))
+            let res = updateScore('win')
 
+            res.then((val) => console.log(val)).catch(e => console.log(e))
             console.log(this.player.score);
             setTimeout(function () {
               Game.endGameMenu("Winner!");

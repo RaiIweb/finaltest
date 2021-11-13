@@ -10,5 +10,5 @@ export default async function updateScore(status) {
                         body: JSON.stringify({status})
                     })
     let response = result.json()
-    console.log(response);
+    return response
 }
