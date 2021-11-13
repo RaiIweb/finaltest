@@ -11,7 +11,11 @@ export default async function updateScore(status,dispatch) {
                     })
     let response = await result.json()
 
-    if(response.response == 'invalid cookie') dispatch({ type: 'USER_LOGOUT'})
+    // if(response.response == 'invalid cookie'){
+
+    //     dispatch({ type: 'USER_LOGOUT'})
+    // } 
+        
 
 
 }
