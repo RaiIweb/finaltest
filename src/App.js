@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       test
-      {/* <BrowserRouter>
+     <BrowserRouter>
         <Routes>
 
           <Route path="/game" element={<Game />}>
@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/" element={ test ?  <Game /> : <Login />}>
           </Route>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
       </div>
   );
 }
