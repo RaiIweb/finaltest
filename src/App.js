@@ -16,15 +16,18 @@ function App() {
 
 
   return (
-    
+    <div>
+      test
       <BrowserRouter>
         <Routes>
+
           <Route path="/game" element={<Game />}>
           </Route>
           <Route exact path="/" element={ test ?  <Game /> : <Login />}>
           </Route>
         </Routes>
       </BrowserRouter>
+      </div>
   );
 }
 
