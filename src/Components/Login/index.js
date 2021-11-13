@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css';
 import { useDispatch } from "react-redux"
-import handleUserLogin from "../../actions/authAction"
+import { handleUserLogin } from "../../actions/authAction"
 
 function Login() {
 
