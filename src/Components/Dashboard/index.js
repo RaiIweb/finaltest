@@ -136,6 +136,7 @@ function Game() {
 
       // Update all objects (move the player, paddle, ball, increment the score, etc.)
       update: function () {
+        
         if (!this.over) {
           // If the ball collides with the bound limits - correct the x and y coords.
           if (this.ball.x <= 0)
@@ -228,14 +229,13 @@ function Game() {
 
         // Handle the end of round transition
         // Check to see if the player won the round.
-        console.log(this.player.score);
 
         if (this.player.score === rounds[this.round]) {
           // Check to see if there are any more rounds/levels left and display the victory screen if
           // there are not.
           if (!rounds[this.round + 1]) {
             this.over = true;
-
+            console.log('player won');
             console.log(this.player.score);
             setTimeout(function () {
               Game.endGameMenu("Winner!");
@@ -253,6 +253,7 @@ function Game() {
         // Check to see if the paddle/AI has won the round.
         else if (this.paddle.score === rounds[this.round]) {
           this.over = true;
+          console.log('ai won');
           console.log(this.player.score);
           setTimeout(function () {
             Game.endGameMenu("Game Over!");
@@ -414,7 +415,6 @@ function Game() {
 
     let result = await logout.json()
 
-    console.log(result)
 
     if(result.logout) {
         
