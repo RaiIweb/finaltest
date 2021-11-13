@@ -1,6 +1,6 @@
 import React , { useState } from "react";
 import './index.css';
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router'
 
 function Signup() {
 
