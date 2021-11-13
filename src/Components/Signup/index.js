@@ -1,8 +1,10 @@
-import React from "react";
+import React , { useState } from "react";
 import './index.css';
+import { Redirect } from "react-router-dom";
 
 function Signup() {
 
+  const [ signup , setSignup] = useState(false)
   
   async function handleSignup(e) {
     e.preventDefault()
@@ -28,6 +30,7 @@ function Signup() {
 
       console.log(result)
 
+      setSignup(true)
 
     } catch(e) {
       console.log(e);
@@ -37,8 +40,10 @@ function Signup() {
   
 
   
-
-  return (
+  if (signup) {
+    return <Redirect to={"/login"} />
+  }
+  return(
     <div className="loginwrapper">
       <h2>Signup Form</h2>
 
@@ -75,16 +80,13 @@ function Signup() {
         </div>
 
         <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-          <button type="button" className="cancelbtn">
-            Cancel
-          </button>
-          <span className="psw">
-             <a href="#">Sign up</a>
-          </span>
+         
+          
         </div>
       </form>
     </div>
-  );
+  )
+   
 }
 
 export default Signup;
