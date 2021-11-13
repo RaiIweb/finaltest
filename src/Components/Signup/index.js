@@ -1,17 +1,12 @@
 import React from "react";
 import './index.css';
-import { useDispatch } from "react-redux"
-import { handleUserLogin } from "../../actions/authAction"
-import { Link } from "react-router-dom";
-function Login() {
 
-  const dispatch = useDispatch()
-  async function handleSubmit(e) {
+function Signup() {
+
+  
+  async function handleSignup(e) {
     e.preventDefault()
-    console.log('form submit')
-
-    console.log(e.target.email.value)
-    console.log(e.target.password.value)
+    
 
     let formValues = {
       email : e.target.email.value,
@@ -20,7 +15,7 @@ function Login() {
 
     try {
 
-      let login = await fetch('https://gameback-end.herokuapp.com/login', {
+      let login = await fetch('https://gameback-end.herokuapp.com/signup', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -33,7 +28,6 @@ function Login() {
 
       console.log(result)
 
-      dispatch(handleUserLogin(result.login))
 
     } catch(e) {
       console.log(e);
@@ -46,9 +40,9 @@ function Login() {
 
   return (
     <div className="loginwrapper">
-      <h2>Login Form</h2>
+      <h2>Signup Form</h2>
 
-      <form onSubmit={handleSubmit} method="post">
+      <form onSubmit={handleSignup} method="post">
         <div className="imgcontainer">
           <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" className="avatar" />
         </div>
@@ -73,7 +67,7 @@ function Login() {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit">Signup</button>
           <label>
             <input type="checkbox" checked="checked" name="remember" /> Remember
             me
@@ -85,7 +79,7 @@ function Login() {
             Cancel
           </button>
           <span className="psw">
-             <Link to="/signup">Sign up</Link>
+             <a href="#">Sign up</a>
           </span>
         </div>
       </form>
@@ -93,4 +87,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
