@@ -1,10 +1,10 @@
 import React  from "react";
 import './index.css';
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Signup() {
 
-  let history = useHistory()
+  let history = useNavigate()
 
   async function handleSignup(e) {
     e.preventDefault()
