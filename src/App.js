@@ -17,7 +17,6 @@ function App() {
 
   return (
     <div>
-      test
      <BrowserRouter  basename={process.env.PUBLIC_URL}>
         <Routes>
 
