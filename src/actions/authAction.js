@@ -16,6 +16,8 @@ export const userLogout = () => {
 export const handleUserLogin = (loggedIn) => {
     return async (dispatch) => {
         try {
+
+            console.log(loggedIn);
             loggedIn && dispatch(userLogin()) 
             
         } catch (e) {
