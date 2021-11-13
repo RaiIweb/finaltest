@@ -24,7 +24,7 @@ function App() {
 
       console.log(result)
       if(result.login) {
-
+        
         dispatch({ type: 'USER_LOGIN_TRUE'})
       } else {
         dispatch({ type: 'USER_LOGIN_FALSE'})
