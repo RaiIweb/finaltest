@@ -1,11 +1,11 @@
-import React , { useState } from "react";
+import React  from "react";
 import './index.css';
-import { Redirect } from 'react-router'
+import { useHistory } from "react-router-dom"
 
 function Signup() {
 
-  const [ signup , setSignup] = useState(false)
-  
+  let history = useHistory()
+
   async function handleSignup(e) {
     e.preventDefault()
     
@@ -30,7 +30,8 @@ function Signup() {
 
       console.log(result)
 
-      setSignup(true)
+      history.push("/login")
+
 
     } catch(e) {
       console.log(e);
@@ -40,9 +41,7 @@ function Signup() {
   
 
   
-  if (signup) {
-    return <Redirect to={"/login"} />
-  }
+  
   return(
     <div className="loginwrapper">
       <h2>Signup Form</h2>
