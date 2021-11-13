@@ -1,6 +1,9 @@
 import React, { useEffect , useState } from "react";
+import { useDispatch } from "react-redux";
 
 function Game() {
+
+  const dispatch = useDispatch()
 
   const [ DIRECTION , ] = useState({
     IDLE: 0,
@@ -412,6 +415,12 @@ function Game() {
     let result = await logout.json()
 
     console.log(result)
+
+    if(result.logout) {
+        
+      dispatch({ type: 'USER_LOGOUT'})
+      
+    }
 
   }
   return (
