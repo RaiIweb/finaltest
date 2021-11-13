@@ -238,7 +238,7 @@ function Game() {
             this.over = true;
             console.log('player won');
 
-            updateScore('won')
+            updateScore('win')
 
             console.log(this.player.score);
             setTimeout(function () {
