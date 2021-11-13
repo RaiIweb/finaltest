@@ -30,7 +30,7 @@ function Signup() {
 
       console.log(result)
 
-      history.push("/login")
+      history("/login")
 
 
     } catch(e) {
