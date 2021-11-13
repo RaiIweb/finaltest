@@ -1,8 +1,11 @@
 import React from "react";
 import './index.css';
+import { useDispatch } from "react-redux"
+import handleUserLogin from "../../actions/authAction"
 
 function Login() {
 
+  const dispatch = useDispatch()
   async function handleSubmit(e) {
     e.preventDefault()
     console.log('form submit')
@@ -29,6 +32,9 @@ function Login() {
       let result = await login.json();
 
       console.log(result)
+
+      dispatch(handleUserLogin(result.login))
+
     } catch(e) {
       console.log(e);
     }

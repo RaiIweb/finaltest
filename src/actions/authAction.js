@@ -13,15 +13,11 @@ export const userLogout = () => {
 }
 
 
-export const handleUserLogin = ({
-    email,
-    password,
-    onSuccess = () => { }
-    , onFail = () => { }
-}) => {
+export const handleUserLogin = (loggedIn) => {
     return async (dispatch) => {
         try {
-             
+            loggedIn && dispatch(userLogin()) 
+            
         } catch (e) {
             //localStorage.removeItem(authToken);
             //onFail()
