@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Game from "./Components/Game";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
+import Game from "./components/Game";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
