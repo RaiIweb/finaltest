@@ -58,7 +58,7 @@ function Signup() {
         </div>
         <div className="container">
           <label for="uname">
-            <b>Username</b>
+            <b>Email</b>
           </label>
           <input
             type="email"
