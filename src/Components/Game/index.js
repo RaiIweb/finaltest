@@ -2,6 +2,7 @@ import React, { useEffect , useState } from "react";
 import { useDispatch } from "react-redux";
 import updateScore from '../../utils/upDateScore'
 import { handleUserLogout } from "../../actions/authAction";
+import './index.css';
 
 function Game() {
 
@@ -424,7 +425,7 @@ function Game() {
     <div>
 
       <canvas></canvas>
-      <button onClick={handleLogout}>Logout</button>
+      <button className="logout" onClick={handleLogout}>Logout</button>
     </div>
   );
 }
