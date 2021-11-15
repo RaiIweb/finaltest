@@ -7,15 +7,17 @@ count is stored in backend api
 
 ## How to run
 
+
 New user have to sign up first , then login to start game. Login sessions will be destroyed after 10 mins .
 
 
 ## How to start in dev
 
+
 Use yarn start to run in dev mode .
 
-
 ### How to deploy
+
 
 To deploy on github pages , first edit 'homepage' field in 
 package.json according to repository name . Push code to remote github repository in main/master branch .
