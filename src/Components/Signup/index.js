@@ -79,10 +79,7 @@ function Signup() {
           />
 
           <button type="submit">Signup</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
-            me
-          </label>
+
         </div>
 
         <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
