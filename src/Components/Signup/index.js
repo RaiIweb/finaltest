@@ -17,7 +17,7 @@ function Signup() {
 
     try {
 
-      let login = await fetch('https://gameback-end.herokuapp.com/signup', {
+      let signup = await fetch('https://gameback-end.herokuapp.com/signup', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -26,10 +26,11 @@ function Signup() {
         body: JSON.stringify(formValues)
       })
 
-      let result = await login.json();
+      let result = await signup.json();
 
       console.log(result)
 
+      alert(result.status)
       history("/")
 
 
