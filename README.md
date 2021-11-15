@@ -5,9 +5,9 @@
 This project is based on ping pong game. It is now in single player mode with ai as other player. Wins and loose 
 count is stored in backend api 
 
-## how to run
+## How to run
 
-New user have to sign up first , then login to start game.
+New user have to sign up first , then login to start game. Login sessions will be destroyed after 10 mins .
 
 
 ## How to start in dev
