@@ -16,7 +16,7 @@ New user have to sign up first , then login to start game. Login sessions will b
 
 Use yarn start to run in dev mode .
 
-### How to deploy
+## How to deploy
 
 
 To deploy on github pages , first edit 'homepage' field in 
