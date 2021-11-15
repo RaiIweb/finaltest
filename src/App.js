@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Game from "../src/Components/Dashboard";
+import Game from "./Components/Game";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import { useSelector } from "react-redux";
