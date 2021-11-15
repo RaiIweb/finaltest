@@ -49,13 +49,10 @@ img.avatar {
   padding: 8px 20px;
   text-decoration: none;
   color: #fff;
-  
+  font-size: 13px;
+
 }
 
 .bottomlinks:hover {
   opacity: .8;
-}
-
-.bottomlinks a {
-   font-size: 13px;
 }
