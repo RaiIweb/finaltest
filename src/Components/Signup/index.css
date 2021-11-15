@@ -14,7 +14,7 @@ input[type=text], input[type=password], input[type=email] {
   box-sizing: border-box;
 }
 
-button {
+button , .bottomlinks {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -46,18 +46,17 @@ img.avatar {
 }
 
 .bottomlinks {
-  background-color: #04AA6D;
-  color: white;
   padding: 10px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
 
   
+}
+
+.bottomlinks:hover {
+  opacity: .8;
 }
 
 .bottomlinks a {
   text-decoration: none;
   color: #fff;
+  font-size: 13px;
 }
