@@ -1,6 +1,6 @@
 # Getting Started with Ping Pong Game
 
-[ this game will currently not work in dev mode because backend api is no cors enabled with localhost ]
+[ this game will currently not work in dev mode because backend api is no cors enabled with localhost yet]
 
 This project is based on ping pong game. It is now in single player mode with ai as other player. Wins and loose 
 count is stored in backend api 
