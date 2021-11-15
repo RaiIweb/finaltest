@@ -1,6 +1,7 @@
 import React  from "react";
 import './index.css';
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Signup() {
 
@@ -85,8 +86,10 @@ function Signup() {
         </div>
 
         <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-         
           
+          <span className="psw">
+             <Link to="/signup">Sign up</Link>
+          </span>
         </div>
       </form>
     </div>
