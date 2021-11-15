@@ -71,6 +71,7 @@ function Login() {
             placeholder="Enter Password"
             name="password"
             required
+            minlength="8"
           />
 
           <button type="submit">Login</button>

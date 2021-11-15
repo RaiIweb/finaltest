@@ -30,8 +30,12 @@ function Signup() {
 
       console.log(result)
 
+      
       alert(result.status)
-      history("/")
+      if(result.status === 'success') {
+
+        history("/")
+      }
 
 
     } catch(e) {
@@ -69,6 +73,7 @@ function Signup() {
             type="password"
             placeholder="Enter Password"
             name="password"
+            minlength="8"
             required
           />
 
