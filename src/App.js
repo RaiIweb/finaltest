@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Game from "./Components/Game";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
-import { useSelector } from "react-redux";
 
-import "./App.css";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
+import "./App.css";
+
 function App() {
-  const test = useSelector((state) => state.authState.userLoggedIn)
+  const loginState = useSelector((state) => state.authState.userLoggedIn)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    let loggedin = async function () {
-      let login = await fetch("https://gameback-end.herokuapp.com", {
+    let checkLogin = async function () {
+      let checkLogin = await fetch("https://gameback-end.herokuapp.com", {
         method: "GET",
         credentials: "include",
       })
 
-      console.log('in app')
-      let result = await login.json()
+      let result = await checkLogin.json()
 
       console.log(result)
       if(result.login) {
@@ -32,19 +33,19 @@ function App() {
       }
     }
 
-    loggedin()
+    checkLogin()
   }, [])
 
   return (
     <div>
       {
-        test !== null &&
+        loginState !== null &&
 
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path="/game" element={<Game />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
-            <Route exact path="/" element={test ? <Game /> : <Login />}></Route>
+            <Route exact path="/" element={loginState ? <Game /> : <Login />}></Route>
           </Routes>
         </BrowserRouter>
       }

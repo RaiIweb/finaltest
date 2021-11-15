@@ -51,7 +51,7 @@ export const handleUserLogin = (email,password) => {
 export const handleUserLogout = () => async (dispatch) => {
 
     try {
-        let logout = await fetch("https://gameback-end.herokuapp.com/logout", {
+        await fetch("https://gameback-end.herokuapp.com/logout", {
             method: "POST",
             credentials: "include",
             })

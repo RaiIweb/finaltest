@@ -18,6 +18,7 @@ function Game() {
   const [ rounds ,] = useState([5])
   const [ colors  , ] = useState(["#1abc9c", "#2ecc71", "#3498db", "#e74c3c", "#9b59b6"])
 
+  // main code of game
   useEffect(() => {
     
     // The ball object (The cube that bounces back and forth)
@@ -413,7 +414,8 @@ function Game() {
 
   }, [])
 
-  async function handleLogout() {
+  // game logout function
+  function handleLogout() {
 
     dispatch(handleUserLogout())
 

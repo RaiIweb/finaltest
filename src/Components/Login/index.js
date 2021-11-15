@@ -1,36 +1,22 @@
 import React from "react";
-import './index.css';
-import { handleUserLogin } from "../../actions/authAction"
+import "./index.css";
+import { handleUserLogin } from "../../actions/authAction";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 function Login() {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    console.log('form submit')
-
-
-    
+    e.preventDefault();
+    console.log("form submit");
 
     try {
-      dispatch(
-
-        handleUserLogin(e.target.email.value,e.target.password.value)
-      )
-      
-
-
-    } catch(e) {
+      dispatch(handleUserLogin(e.target.email.value, e.target.password.value));
+    } catch (e) {
       console.log(e);
     }
   }
-  
-  
-
-  
 
   return (
     <div className="loginwrapper">
@@ -38,18 +24,17 @@ function Login() {
 
       <form onSubmit={handleSubmit} method="post">
         <div className="imgcontainer">
-          <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" className="avatar" />
+          <img
+            src="https://www.w3schools.com/howto/img_avatar2.png"
+            alt="Avatar"
+            className="avatar"
+          />
         </div>
         <div className="container">
           <label for="uname">
             <b>Username</b>
           </label>
-          <input
-            type="email"
-            placeholder="Enter Email"
-            name="email"
-            required
-          />
+          <input type="email" placeholder="Enter Email" name="email" required />
 
           <label for="psw">
             <b>Password</b>
@@ -64,15 +49,14 @@ function Login() {
 
           <button type="submit">Login</button>
           <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
+            <input type="checkbox"  name="remember" /> Remember
             me
           </label>
         </div>
 
         <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-          
           <span className="psw">
-             <Link to="/signup">Sign up</Link>
+            <Link to="/signup">Sign up</Link>
           </span>
         </div>
       </form>
