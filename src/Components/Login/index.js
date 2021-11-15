@@ -31,12 +31,12 @@ function Login() {
           />
         </div>
         <div className="container">
-          <label for="uname">
+          <label for="email">
             <b>Email</b>
           </label>
           <input type="email" placeholder="Enter Email" name="email" required />
 
-          <label for="psw">
+          <label for="password">
             <b>Password</b>
           </label>
           <input

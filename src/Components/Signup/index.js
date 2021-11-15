@@ -57,7 +57,7 @@ function Signup() {
           <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" className="avatar" />
         </div>
         <div className="container">
-          <label for="uname">
+          <label for="email">
             <b>Email</b>
           </label>
           <input
@@ -67,7 +67,7 @@ function Signup() {
             required
           />
 
-          <label for="psw">
+          <label for="password">
             <b>Password</b>
           </label>
           <input
