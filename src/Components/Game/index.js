@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from "react";
 import { useDispatch } from "react-redux";
 import updateScore from '../../utils/upDateScore'
+import { handleUserLogout } from "../../actions/authAction";
 
 function Game() {
 
@@ -414,19 +415,7 @@ function Game() {
 
   async function handleLogout() {
 
-    let logout = await fetch("https://gameback-end.herokuapp.com/logout", {
-        method: "POST",
-        credentials: "include",
-      })
-
-    let result = await logout.json()
-
-
-    if(result.logout) {
-        
-      dispatch({ type: 'USER_LOGOUT'})
-      
-    }
+    dispatch(handleUserLogout())
 
   }
   return (

@@ -1,39 +1,27 @@
 import React from "react";
 import './index.css';
-import { useDispatch } from "react-redux"
 import { handleUserLogin } from "../../actions/authAction"
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 function Login() {
 
   const dispatch = useDispatch()
+
   async function handleSubmit(e) {
     e.preventDefault()
     console.log('form submit')
 
-    console.log(e.target.email.value)
-    console.log(e.target.password.value)
 
-    let formValues = {
-      email : e.target.email.value,
-      password : e.target.password.value
-    }
+    
 
     try {
+      dispatch(
 
-      let login = await fetch('https://gameback-end.herokuapp.com/login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(formValues)
-      })
+        handleUserLogin(e.target.email.value,e.target.password.value)
+      )
+      
 
-      let result = await login.json();
-
-      console.log(result)
-
-      dispatch(handleUserLogin(result.login))
 
     } catch(e) {
       console.log(e);

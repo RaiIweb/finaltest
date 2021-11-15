@@ -13,12 +13,32 @@ export const userLogout = () => {
 }
 
 
-export const handleUserLogin = (loggedIn) => {
+export const handleUserLogin = (email,password) => {
     return async (dispatch) => {
         try {
 
-            console.log(loggedIn);
-            loggedIn && dispatch(userLogin()) 
+            let formValues = {
+                email ,
+                password
+              }
+
+            let login = await fetch('https://gameback-end.herokuapp.com/login', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(formValues)
+              })
+        
+              let result = await login.json();
+        
+              console.log(result)
+
+              if(result.login) {
+                dispatch(userLogin()) 
+              }
+              
             
         } catch (e) {
             //localStorage.removeItem(authToken);
@@ -31,8 +51,14 @@ export const handleUserLogin = (loggedIn) => {
 export const handleUserLogout = ({ onFail = () => { }, onSuccess = () => { } }) => async (dispatch) => {
 
     try {
+        let logout = await fetch("https://gameback-end.herokuapp.com/logout", {
+            method: "POST",
+            credentials: "include",
+            })
         
         dispatch(userLogout())
+        
+        
         
     } catch (e) {
         dispatch(userLogout())
