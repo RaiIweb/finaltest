@@ -50,7 +50,7 @@ function Signup() {
   
   return(
     <div className="loginwrapper">
-      <h2>Signup Form</h2>
+      <h2>Signup </h2>
 
       <form onSubmit={handleSignup} method="post">
         <div className="imgcontainer">

@@ -20,7 +20,7 @@ function Login() {
 
   return (
     <div className="loginwrapper">
-      <h2>Login Form</h2>
+      <h2>Login </h2>
 
       <form onSubmit={handleSubmit} method="post">
         <div className="imgcontainer">
