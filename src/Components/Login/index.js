@@ -55,9 +55,8 @@ function Login() {
         </div>
 
         <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-          <span className="bottomlinks">
-            <Link to="/signup">Sign up</Link>
-          </span>
+            <Link className="bottomlinks" to="/signup">Sign up</Link>
+          
         </div>
       </form>
     </div>
