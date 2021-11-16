@@ -440,7 +440,9 @@ function Game() {
 
         }
       })
-      setShowTable(rankedVal)
+      let sortedrankedVal = rankedVal.sort((a,b) => (a.rank > b.rank) ? 1 : ((b.rank > a.rank) ? -1 : 0))
+
+      setShowTable(sortedrankedVal)
     });
     console.log(response);
   }
@@ -467,11 +469,11 @@ function Game() {
             </thead>
             <tbody>
               {
-                showTable && showTable.map((item) => {
+                showTable && showTable.map((item, index) => {
 
                   return (
                     <tr>
-                      <td class="rank">{item.rank}</td>
+                      <td class="rank">{item.index}</td>
                       <td class="team">{item.username}</td>
                       <td class="points">{item.wins}</td>
                       <td class="up-down">{item.defeats}</td>
