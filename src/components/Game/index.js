@@ -430,7 +430,17 @@ function Game() {
     let response = handleUserRankings();
     response.then((val) => {
       console.log(val);
-      setShowTable(val)
+
+      let rankedVal = val.map((item) => {
+        return {
+          username: item.username,
+          wins: item.wins,
+          defeats: item.defeats,
+          rank : item.wins - item.defeats
+
+        }
+      })
+      setShowTable(rankedVal)
     });
     console.log(response);
   }
@@ -461,10 +471,10 @@ function Game() {
 
                   return (
                     <tr>
-                      <td class="rank">{item.wins}</td>
-                      <td class="team">{item.wins}</td>
+                      <td class="rank">{item.rank}</td>
+                      <td class="team">{item.username}</td>
                       <td class="points">{item.wins}</td>
-                      <td class="up-down">{item.wins}</td>
+                      <td class="up-down">{item.defeats}</td>
                     </tr>
                   )
                 })
