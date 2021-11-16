@@ -426,6 +426,9 @@ function Game() {
   function handleRankings() {
 
     let response = handleUserRankings()
+    response.then((val) => {
+      console.log(val)
+    })
     console.log(response)
   }
   return (
