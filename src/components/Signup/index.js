@@ -13,7 +13,8 @@ function Signup() {
 
     let formValues = {
       email : e.target.email.value,
-      password : e.target.password.value
+      password : e.target.password.value,
+      name : e.target.name.value
     }
 
     try {
@@ -57,6 +58,15 @@ function Signup() {
           <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" className="avatar" />
         </div>
         <div className="container">
+          <label for="name">
+            <b>Name</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            name="name"
+            required
+          />
           <label for="email">
             <b>Email</b>
           </label>
@@ -66,7 +76,6 @@ function Signup() {
             name="email"
             required
           />
-
           <label for="password">
             <b>Password</b>
           </label>

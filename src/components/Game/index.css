@@ -3,3 +3,15 @@
     display: block;
     margin: auto;
 }
+
+.rankings {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .canvas {
+        width: 95% !important;
+        height: 95vh !important;
+    }
+}

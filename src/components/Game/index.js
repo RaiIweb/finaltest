@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from "react";
 import { useDispatch } from "react-redux";
 import updateScore from '../../utils/upDateScore'
+import handleUserRankings from '../../utils/handleUserRankings'
 import { handleUserLogout } from "../../actions/authAction";
 import './index.css';
 
@@ -16,7 +17,7 @@ function Game() {
     RIGHT: 4,
   })
 
-  const [ rounds ,] = useState([5])
+  const [ rounds ,] = useState([20])
   const [ colors  , ] = useState(["#1abc9c", "#2ecc71", "#3498db", "#e74c3c", "#9b59b6"])
 
   // main code of game
@@ -265,7 +266,7 @@ function Game() {
           updateScore('loose' ,dispatch)
           console.log(this.player.score);
           setTimeout(function () {
-            Game.endGameMenu("Game Over!");
+            Game.endGameMenu("You loose!");
           }, 1000);
         }
       },
@@ -341,21 +342,21 @@ function Game() {
         this.context.font = "30px Courier New";
 
         // Draw the winning score (center)
-        this.context.fillText(
-          "Round " + (Game.round + 1),
-          this.canvas.width / 2,
-          35
-        );
+        //  this.context.fillText(
+        //    "Round " + (Game.round + 1),
+        //    this.canvas.width / 2,
+        // 35
+        //  );
 
         // Change the font size for the center score value
         this.context.font = "40px Courier";
 
-        // Draw the current round number
-        this.context.fillText(
-          rounds[Game.round] ? rounds[Game.round] : rounds[Game.round - 1],
-          this.canvas.width / 2,
-          100
-        );
+        // // Draw the current round number
+        //  this.context.fillText(
+        //    rounds[Game.round] ? rounds[Game.round] : rounds[Game.round - 1],
+        //    this.canvas.width / 2,
+        //    100
+        //  );
       },
 
       loop: function () {
@@ -421,11 +422,18 @@ function Game() {
     dispatch(handleUserLogout())
 
   }
+  // game rankings function
+  function handleRankings() {
+
+    let response = handleUserRankings()
+    console.log(response)
+  }
   return (
     <div>
 
-      <canvas></canvas>
+      <canvas className="canvas"></canvas>
       <button className="logout" onClick={handleLogout}>Logout</button>
+      <button className="logout rankings" onClick={handleRankings}>Rankings</button>
     </div>
   );
 }

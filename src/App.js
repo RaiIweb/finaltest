@@ -46,6 +46,7 @@ function App() {
             <Route path="/game" element={<Game />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route exact path="/" element={loginState ? <Game /> : <Login />}></Route>
+           
           </Routes>
         </BrowserRouter>
       }
