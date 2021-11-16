@@ -64,7 +64,7 @@ function Signup() {
           <input
             type="text"
             placeholder="Enter Name"
-            name="name"
+            name="username"
             required
           />
           <label for="email">
