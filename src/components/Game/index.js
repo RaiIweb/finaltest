@@ -79,7 +79,6 @@ function Game() {
         this.running = this.over = false; // **********
         this.turn = this.paddle;
 
-        console.log(this.turn); // **********
         this.timer = this.round = 0; // **********
         this.color = "#2c3e50"; // **********
 
@@ -119,7 +118,6 @@ function Game() {
       // **********
       menu: function () {
         // Draw all the Game objects in their current state
-        console.log(Game);
         Game.draw();
 
         // Change the canvas font size and color
@@ -445,7 +443,7 @@ function Game() {
 
       setShowTable(sortedrankedVal)
     });
-    console.log(response);
+    
   }
   return (
     <div>
@@ -485,7 +483,7 @@ function Game() {
               
             </tbody>
           </table>
-          <button onClick={setShowTable(false)} className='logout'>Close</button>
+          <button onClick={'setShowTable(false)'} className='logout'>Close</button>
         </div>
 
       }
