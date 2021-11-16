@@ -1,28 +1,34 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import updateScore from '../../utils/upDateScore'
-import handleUserRankings from '../../utils/handleUserRankings'
+import updateScore from "../../utils/upDateScore";
+import handleUserRankings from "../../utils/handleUserRankings";
 import { handleUserLogout } from "../../actions/authAction";
-import './index.css';
+import "./index.css";
 
 function Game() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const [ DIRECTION , ] = useState({
+  const [DIRECTION] = useState({
     IDLE: 0,
     UP: 1,
     DOWN: 2,
     LEFT: 3,
     RIGHT: 4,
-  })
+  });
 
-  const [ rounds ,] = useState([20])
-  const [ colors  , ] = useState(["#1abc9c", "#2ecc71", "#3498db", "#e74c3c", "#9b59b6"])
+  const [rounds] = useState([20]);
+  const [colors] = useState([
+    "#1abc9c",
+    "#2ecc71",
+    "#3498db",
+    "#e74c3c",
+    "#9b59b6",
+  ]);
+
+  const [showTable , setShowTable] = useState(false)
 
   // main code of game
   useEffect(() => {
-    
     // The ball object (The cube that bounces back and forth)
     var Ball = {
       new: function (incrementedSpeed) {
@@ -36,7 +42,7 @@ function Game() {
           speed: incrementedSpeed || 9,
         };
       },
-    }
+    };
 
     // The paddle object (The two lines that move up and down)
     var Paddle = {
@@ -44,38 +50,37 @@ function Game() {
         return {
           width: 18,
           height: 70,
-          x: side === "left" ? 150 : this.canvas.width - 150,   // x position of paddle
-          y: this.canvas.height / 2 - 35,                 // y position of paddle
+          x: side === "left" ? 150 : this.canvas.width - 150, // x position of paddle
+          y: this.canvas.height / 2 - 35, // y position of paddle
           score: 0,
           move: DIRECTION.IDLE,
           speed: 8,
         };
       },
-    }
+    };
 
     var Game = {
-
       initialize: function () {
         this.canvas = document.querySelector("canvas");
         this.context = this.canvas.getContext("2d");
 
-        this.canvas.width = 1400;          // *****************
-        this.canvas.height = 1000;         // *****************
+        this.canvas.width = 1400; // *****************
+        this.canvas.height = 1000; // *****************
 
-        this.canvas.style.width = this.canvas.width / 2 + "px";   // *****************
+        this.canvas.style.width = this.canvas.width / 2 + "px"; // *****************
         this.canvas.style.height = this.canvas.height / 2 + "px"; // *****************
 
-        this.player = Paddle.new.call(this, "left");   // **********
-        this.paddle = Paddle.new.call(this, "right");   // **********
+        this.player = Paddle.new.call(this, "left"); // **********
+        this.paddle = Paddle.new.call(this, "right"); // **********
         this.ball = Ball.new.call(this);
 
-        this.paddle.speed = 8;            // **********
-        this.running = this.over = false;     // **********
-        this.turn = this.paddle;      
+        this.paddle.speed = 8; // **********
+        this.running = this.over = false; // **********
+        this.turn = this.paddle;
 
-        console.log(this.turn);          // **********
-        this.timer = this.round = 0;       // **********
-        this.color = "#2c3e50";            // **********
+        console.log(this.turn); // **********
+        this.timer = this.round = 0; // **********
+        this.color = "#2c3e50"; // **********
 
         Game.menu();
         Game.listen();
@@ -110,7 +115,7 @@ function Game() {
         }, 3000);
       },
 
-         // **********
+      // **********
       menu: function () {
         // Draw all the Game objects in their current state
         console.log(Game);
@@ -137,11 +142,10 @@ function Game() {
           this.canvas.width / 2,
           this.canvas.height / 2 + 15
         );
-      },    // **********
+      }, // **********
 
       // Update all objects (move the player, paddle, ball, increment the score, etc.)
       update: function () {
-        
         if (!this.over) {
           // If the ball collides with the bound limits - correct the x and y coords.
           if (this.ball.x <= 0)
@@ -240,9 +244,9 @@ function Game() {
           // there are not.
           if (!rounds[this.round + 1]) {
             this.over = true;
-            console.log('player won');
+            console.log("player won");
 
-            let res = updateScore('win',dispatch)
+            let res = updateScore("win", dispatch);
 
             console.log(this.player.score);
             setTimeout(function () {
@@ -261,9 +265,9 @@ function Game() {
         // Check to see if the paddle/AI has won the round.
         else if (this.paddle.score === rounds[this.round]) {
           this.over = true;
-          console.log('ai won');
+          console.log("ai won");
 
-          updateScore('loose' ,dispatch)
+          updateScore("loose", dispatch);
           console.log(this.player.score);
           setTimeout(function () {
             Game.endGameMenu("You loose!");
@@ -286,7 +290,8 @@ function Game() {
         this.context.fillStyle = "#fff";
 
         // Draw the Player
-        this.context.fillRect(         // **********
+        this.context.fillRect(
+          // **********
           this.player.x,
           this.player.y,
           this.player.width,
@@ -294,7 +299,8 @@ function Game() {
         );
 
         // Draw the Paddle
-        this.context.fillRect(         // **********
+        this.context.fillRect(
+          // **********
           this.paddle.x,
           this.paddle.y,
           this.paddle.width,
@@ -304,9 +310,9 @@ function Game() {
         // Draw the Ball
         if (Game._turnDelayIsOver.call(this)) {
           this.context.fillRect(
-            this.ball.x,                   // **********
-            this.ball.y,                     // **********
-            this.ball.width,             // **********
+            this.ball.x, // **********
+            this.ball.y, // **********
+            this.ball.width, // **********
             this.ball.height
           );
         }
@@ -318,7 +324,7 @@ function Game() {
         this.context.lineTo(this.canvas.width / 2, 140);
         this.context.lineWidth = 10;
         this.context.strokeStyle = "#ffffff";
-        this.context.stroke();        
+        this.context.stroke();
 
         // Set the default canvas font and align it to the center
         this.context.font = "100px Courier New";
@@ -413,30 +419,63 @@ function Game() {
     };
 
     Game.initialize();
-
-  }, [])
+  }, []);
 
   // game logout function
   function handleLogout() {
-
-    dispatch(handleUserLogout())
-
+    dispatch(handleUserLogout());
   }
   // game rankings function
   function handleRankings() {
-
-    let response = handleUserRankings()
+    let response = handleUserRankings();
     response.then((val) => {
-      console.log(val)
-    })
-    console.log(response)
+      console.log(val);
+      setShowTable(val)
+    });
+    console.log(response);
   }
   return (
     <div>
-
       <canvas className="canvas"></canvas>
-      <button className="logout" onClick={handleLogout}>Logout</button>
-      <button className="logout rankings" onClick={handleRankings}>Rankings</button>
+      <button className="logout" onClick={handleLogout}>
+        Logout
+      </button>
+      <button className="logout rankings" onClick={handleRankings}>
+        Rankings
+      </button>
+      {
+        showTable &&
+        <div className="rankingsmodal">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Wins</th>
+                <th>Looses</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                showTable && showTable.map((item) => {
+
+                  return (
+                    <tr>
+                      <td class="rank">{item.wins}</td>
+                      <td class="team">{item.wins}</td>
+                      <td class="points">{item.wins}</td>
+                      <td class="up-down">{item.wins}</td>
+                    </tr>
+                  )
+                })
+              }
+              
+            </tbody>
+          </table>
+          <button className='closebtn'>Close</button>
+        </div>
+
+      }
     </div>
   );
 }
