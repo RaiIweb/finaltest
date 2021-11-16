@@ -27,6 +27,7 @@ function Game() {
 
   const [showTable , setShowTable] = useState(false)
 
+  console.log(showTable)
   // main code of game
   useEffect(() => {
     // The ball object (The cube that bounces back and forth)
@@ -419,7 +420,7 @@ function Game() {
     };
 
     Game.initialize();
-  }, []);
+  }, [])
 
   // game logout function
   function handleLogout() {
@@ -429,7 +430,6 @@ function Game() {
   function handleRankings() {
     let response = handleUserRankings();
     response.then((val) => {
-      console.log(val);
 
       let rankedVal = val.map((item) => {
         return {
@@ -441,6 +441,7 @@ function Game() {
         }
       })
       let sortedrankedVal = rankedVal.sort((a,b) => (a.rank > b.rank) ? 1 : ((b.rank > a.rank) ? -1 : 0))
+      console.log(sortedrankedVal);
 
       setShowTable(sortedrankedVal)
     });
