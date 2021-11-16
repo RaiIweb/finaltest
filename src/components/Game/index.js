@@ -484,7 +484,7 @@ function Game() {
               
             </tbody>
           </table>
-          <button className='closebtn'>Close</button>
+          <button onClick={setShowTable(false)} className='logout'>Close</button>
         </div>
 
       }
