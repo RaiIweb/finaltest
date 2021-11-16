@@ -473,7 +473,7 @@ function Game() {
 
                   return (
                     <tr>
-                      <td class="rank">{item.index}</td>
+                      <td class="rank">{index}</td>
                       <td class="team">{item.username}</td>
                       <td class="points">{item.wins}</td>
                       <td class="up-down">{item.defeats}</td>
